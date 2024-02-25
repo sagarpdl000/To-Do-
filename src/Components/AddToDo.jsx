@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { TodoContext } from '../Context/TodoContext';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const AddToDo = () => {
 
@@ -17,7 +19,7 @@ const AddToDo = () => {
 
       else{
 
-        const newTodo = [...todos, {id:1, title: title, completed : false}];
+        const newTodo = [...todos, {id: uuidv4, title: title, completed : false}]; //UUID for unique id, npm i --save-dev uuid
         setTodos(newTodo);
         setTitle('')
         console.log(newTodo);
