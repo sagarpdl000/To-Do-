@@ -4,11 +4,11 @@ import ToDo from './ToDo';
 
 const ToDoList = () => {
 
-    const [todos,setTodos] = useContext(TodoContext);
+    const [todos] = useContext(TodoContext);
 
   return (
-
-        1 <= todos.length ? todos.map((item)=>{
+       <div className='mt-4'>
+       { 1 <= todos.length ? todos.map((item)=>{
 
             return(
                 < ToDo key = {item.id}
@@ -20,9 +20,11 @@ const ToDoList = () => {
                 />
             )
 
-        }) : (<h1>No list to show.</h1>)
+        }) : (<h1>No list to show.</h1>)} </div>
     
   )
+  
 }
+
 
 export default ToDoList
