@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { TodoContext } from '../Context/TodoContext';
 import {v4 as uuid} from 'uuid';
 
@@ -24,16 +24,20 @@ const AddToDo = () => {
         setTitle('')
         console.log(newTodo); 
       }
-      
-
     }
+
+    useEffect(()=>{
+
+      localStorage.setItem('todos', JSON.stringify(todos))
+
+    }, [todos])
 
   return (
     <div className='mt-2'>
 
         <input type="text" placeholder='Add your todo' className='border-2 border-black' value={title} onChange={e => setTitle(e.target.value)} />
 
-        <button className='border-2 border-black ml-2' onClick={addTodo}>Add</button>
+        <button className='border-2 ml-2 bg-green-400 px-2' onClick={addTodo}>Add</button>
     </div>
   )
 }

@@ -35,14 +35,24 @@ const ToDo = (props) => {
     setTodos(filteredTodo);
   }
 
+  const isCompleted = props.completed ? 'checked' : ''; 
+
     
   return (
-    <div className='flex justify-center gap-4'>
-        <input type="checkbox" value={props.id} id={props.id} 
+    <div className='grid grid-cols-2 justify-center gap-4 mt-2 md:mx-96 bg-slate-200'>
+
+      <div className=''>
+        <input type="checkbox" checked= {isCompleted} value={props.id} id={props.id} 
         onChange= {e=>completedTodo(e)}/>
 
         <label htmlFor={props.id}>{props.title}</label>
-        <button id={props.id} onClick={e=>deleteTodo(e)}>Delete</button>
+        
+    </div>
+
+    <div>
+        <button id={props.id} onClick={e=>deleteTodo(e)} className='border-2 ml-2 bg-red-400 px'>Delete</button>
+        </div>
+        
     </div>
   )
 }
